@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REAL MÍDIA </title>
+    <title>REAL MÍDIA</title>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Metal+Mania&family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; transition: all 0.2s ease; }
@@ -19,48 +19,49 @@
             flex-direction: column;
             justify-content: center; 
             align-items: center; 
-            min-height: 100vh;
+            height: 100vh; 
             width: 100vw;
-            overflow-x: hidden;
-            padding: 20px;
+            overflow: hidden; 
+            padding: 15px;
         }
 
         .container { 
             width: 100%; 
-            max-width: 480px; 
+            max-width: 440px; 
             display: flex;
             flex-direction: column;
-            align-items: center;
+            max-height: 98vh;
         }
 
         .tropa-titulo { 
             text-align: center; 
             font-family: 'Metal Mania', cursive; 
-            font-size: 5.5rem; 
-            margin: 0 0 30px 0; 
+            font-size: 5.5rem;
+            margin: 0 0 10px 0; 
             text-transform: uppercase;
+            letter-spacing: 2px;
             background: linear-gradient(0deg, #444 0%, #fff 50%, #444 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+            filter: drop-shadow(0 0 15px rgba(255,255,255,0.4));
             animation: glowTitle 3s infinite ease-in-out;
+            line-height: 0.9;
         }
 
         @keyframes glowTitle {
             0%, 100% { filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
-            50% { filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); }
+            50% { filter: drop-shadow(0 0 25px rgba(255,255,255,0.6)); }
         }
 
         .card { 
             background: #0d0d0d;
             border-radius: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             position: relative;
             padding: 2px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             width: 100%;
         }
-
 
         .card::before {
             content: '';
@@ -78,57 +79,68 @@
 
         .card-content {
             background: #0d0d0d;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
+
+        #lista {
+            max-height: 150px;
+            overflow-y: auto;
+            margin-bottom: 5px;
+            padding-right: 5px;
+        }
+
+        #lista::-webkit-scrollbar { width: 4px; }
+        #lista::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 
         .select-box, .input-text { 
-            width: 100%; height: 50px; background: #000; border: 1px solid #333; 
-            padding: 0 15px; border-radius: 4px; color: #fff; font-size: 16px; outline: none;
+            width: 100%; height: 45px; background: #000; border: 1px solid #333; 
+            padding: 0 15px; border-radius: 4px; color: #fff; font-size: 15px; outline: none;
         }
 
-        .select-box:focus { border-color: #fff; }
-
         .btn-add { 
-            background: #fff; color: #000; width: 100%; height: 55px; border-radius: 4px; 
-            font-family: 'Luckiest Guy'; font-size: 1.2rem; border: none; cursor: pointer; 
-            text-transform: uppercase; margin-top: 10px;
+            background: #fff; color: #000; width: 100%; height: 50px; border-radius: 4px; 
+            font-family: 'Luckiest Guy'; font-size: 1.1rem; border: none; cursor: pointer; 
+            text-transform: uppercase; margin-top: 5px;
         }
 
         .item-lista { 
-            background: #111; padding: 12px; border-radius: 6px; margin-bottom: 8px; 
+            background: #111; padding: 10px; border-radius: 6px; margin-bottom: 6px; 
             display: flex; flex-direction: column; border: 1px solid #222;
         }
 
         .item-info { display: flex; justify-content: space-between; align-items: center; }
         
-        .cart-controls { display: flex; align-items: center; gap: 8px; background: #000; padding: 4px 8px; border-radius: 4px; border: 1px solid #333; }
-        .btn-cart-qty { background: transparent; border: none; color: #fff; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
+        .cart-controls { display: flex; align-items: center; gap: 8px; background: #000; padding: 2px 6px; border-radius: 4px; border: 1px solid #333; }
+        .btn-cart-qty { background: transparent; border: none; color: #fff; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
 
         .btn-footer { 
-            height: 45px; border-radius: 4px; border: 1px solid #333; font-family: 'Luckiest Guy'; 
+            height: 40px; border-radius: 4px; border: 1px solid #333; font-family: 'Luckiest Guy'; 
             cursor: pointer; background: #050505; color: #fff; flex: 1;
         }
 
         .btn-finish { 
-            background: #151515; color: #fff; border: 1px solid #333; height: 50px; 
-            width: 100%; margin-top: 10px; border-radius: 4px; font-family: 'Luckiest Guy'; cursor: pointer;
+            background: #151515; color: #fff; border: 1px solid #333; height: 45px; 
+            width: 100%; border-radius: 4px; font-family: 'Luckiest Guy'; cursor: pointer;
         }
 
         .btn-finish.active-parc { background: #fff; color: #000; border-color: #fff; }
 
         .btn-discord { 
             background: #fff; color: #000; border: none; font-family: 'Luckiest Guy'; 
-            height: 50px; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 5px;
+            height: 45px; border-radius: 4px; cursor: pointer; width: 100%; margin-top: 5px;
         }
 
         .box-total { 
-            background: #000; border: 2px solid #fff; padding: 20px; border-radius: 4px; 
-            text-align: center; margin-top: 15px; width: 100%;
+            background: #000; border: 2px solid #fff; padding: 15px; border-radius: 4px; 
+            text-align: center; margin-top: auto; width: 100%;
         }
 
-        .val-total { display: block; font-size: 3.5rem; font-family: 'Luckiest Guy'; color: #fff; margin-top: 5px; }
+        .val-total { display: block; font-size: 2.8rem; font-family: 'Luckiest Guy'; color: #fff; line-height: 1; margin-top: 5px; }
     </style>
 </head>
 <body>
@@ -138,6 +150,11 @@
 
     <div class="card">
         <div class="card-content">
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="vendedorNome" class="input-text" placeholder="Vendedor" oninput="salvarVendedor()">
+                <input type="number" id="vendedorID" class="input-text" placeholder="ID" style="width: 100px;" oninput="salvarVendedor()">
+            </div>
+            
             <select id="itemSel" class="select-box">
                 <option value="" disabled selected>Selecionar Munição...</option>
                 <option value="PT 100X,5000,7500">PT 100X</option>
@@ -146,7 +163,7 @@
                 <option value="C4,2500,2900">C4</option>
             </select>
             
-            <input type="number" id="qtd" class="input-text" value="1" min="1" style="margin-top:10px;">
+            <input type="number" id="qtd" class="input-text" value="1" min="1">
             <button class="btn-add" onclick="addItem()">ADICIONAR ITEM</button>
         </div>
     </div>
@@ -154,7 +171,7 @@
     <div class="card" id="cardCarrinho" style="display:none;">
         <div class="card-content">
             <div id="lista"></div>
-            <div style="display:flex; gap:10px;">
+            <div style="display:flex; gap:8px;">
                 <button class="btn-footer" onclick="limpar()">Zerar</button>
                 <button class="btn-footer" onclick="copyTotal()">Copiar</button>
             </div>
@@ -164,7 +181,7 @@
     </div>
 
     <div class="box-total">
-        <span style="font-size: 11px; color: #888; letter-spacing: 3px; font-weight: bold; text-transform: uppercase;">Total a Pagar</span>
+        <span style="font-size: 10px; color: #888; letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">Total a Pagar</span>
         <b id="totalBruto" class="val-total">R$ 0,00</b>
     </div>
 </div>
@@ -178,6 +195,16 @@
     let modoVenda = localStorage.getItem('midia_modo') || 'pista';
 
     const formatar = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    function carregarVendedor() {
+        document.getElementById('vendedorNome').value = localStorage.getItem('midia_vendedor_nome') || "";
+        document.getElementById('vendedorID').value = localStorage.getItem('midia_vendedor_id') || "";
+    }
+
+    function salvarVendedor() {
+        localStorage.setItem('midia_vendedor_nome', document.getElementById('vendedorNome').value);
+        localStorage.setItem('midia_vendedor_id', document.getElementById('vendedorID').value);
+    }
 
     function salvar() {
         localStorage.setItem('midia_carrinho', JSON.stringify(lote));
@@ -219,17 +246,16 @@
             lista.innerHTML += `
                 <div class="item-lista">
                     <div class="item-info">
-                        <span style="color:#eee; font-weight:600;">${item.nome}</span>
+                        <span style="color:#eee; font-size:14px; font-weight:600;">${item.nome}</span>
                         <div style="display:flex; align-items:center; gap:8px;">
                             <div class="cart-controls">
                                 <button class="btn-cart-qty" onclick="alterarQtdCarrinho(${i}, -1)">-</button>
-                                <span style="font-weight:bold; min-width:20px; text-align:center;">${item.qtd}</span>
+                                <span style="font-weight:bold; min-width:15px; text-align:center; font-size:14px;">${item.qtd}</span>
                                 <button class="btn-cart-qty" onclick="alterarQtdCarrinho(${i}, 1)">+</button>
                             </div>
                             <span onclick="remover(${i})" style="color:#555; cursor:pointer;">✕</span>
                         </div>
                     </div>
-                    <div style="font-size:10px; color:#888; margin-top:5px;">Subtotal: ${formatar(subtotal)}</div>
                 </div>`;
         });
 
@@ -247,23 +273,31 @@
     function copyTotal() { navigator.clipboard.writeText(window.ultimoTotal); alert("Valor copiado!"); }
 
     async function enviarLogs() {
+        const vNome = document.getElementById('vendedorNome').value;
+        const vID = document.getElementById('vendedorID').value;
+
+        if(!vNome || !vID) { alert("Preencha seu Nome e ID!"); return; }
         if(!lote.length) return;
+
         const payload = {
             embeds: [{
                 title: "📦 REGISTRO REAL MÍDIA",
                 color: 0,
                 fields: [
+                    { name: "Vendedor", value: `👤 **${vNome}** (${vID})`, inline: false },
                     { name: "Itens", value: lote.map(i => `• ${i.qtd}x **${i.nome}**`).join('\n') },
                     { name: "Total", value: `\`${formatar(window.ultimoTotal)}\``, inline: true },
                     { name: "Tipo", value: modoVenda === 'parceria' ? "🤝 Parceria" : "✕ Pista", inline: true }
                 ],
-                footer: { text: "Nova Venda Registrada | " + new Date().toLocaleString() }
+                footer: { text: "Nova Venda Real Mídia | " + new Date().toLocaleString() }
             }]
         };
         await fetch(_0x_config._secret, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-        alert("Enviado para os logs!");
+        alert("Log enviada com sucesso!");
         lote = []; render();
     }
+    
+    carregarVendedor();
     render();
 </script>
 </body>
